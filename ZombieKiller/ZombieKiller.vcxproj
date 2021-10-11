@@ -108,10 +108,12 @@ copy "$(SolutionDir)JsonParser\bin\jsoncpp.dll" "$(SolutionDir)bin\$(Configurati
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Render.cpp" />
     <ClCompile Include="src\ZombieKiller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core.h" />
+    <ClInclude Include="src\Render.h" />
     <ClInclude Include="src\ZombieKiller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
