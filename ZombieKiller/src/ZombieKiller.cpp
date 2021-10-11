@@ -86,7 +86,7 @@ int main()
         return 1;
     }
 
-    std::vector<std::pair<std::string, int*>> colors;
+    std::vector<std::pair<std::string, sf::Color>> colors;
     Json::Value c;
 
     //parse colors
@@ -106,13 +106,15 @@ int main()
                                             for (int k = 0; k < 3; k++) {
                                                 if (c["values"][i][1][k].isInt()) {
                                                     v[k] = c["values"][i][1][k].asInt();
+                                                    std::cout << "v[" << k << "]=" << c["values"][i][1][k].asInt() << std::endl;
                                                 }
                                                 else {
                                                     std::cout << " values[" << i << "][1]["<<k<<"] is not an int!" << std::endl;
                                                     return 1;
                                                 }
                                             }
-                                            std::pair<std::string, int*> p = std::make_pair(c["values"][i][0].asString(), v);
+                                            sf::Color col(v[0],v[1],v[2]);
+                                            std::pair<std::string, sf::Color> p = std::make_pair(c["values"][i][0].asString(), col);
                                             colors.push_back(p);
                                         }
                                         else {
@@ -161,7 +163,7 @@ int main()
         return 1;
     }
 
-    sf::RenderWindow window(sf::VideoMode(180, 20), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(10*cellsize, 2*cellsize), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     window.clear();

@@ -4,4 +4,4 @@
 #include <iostream>
 #include <string>
 
-void DrawMap(std::vector<std::string>, std::vector<std::pair<std::string, int*>>,int,sf::RenderWindow&);
+void DrawMap(std::vector<std::string>, std::vector<std::pair<std::string, sf::Color>>,int,sf::RenderWindow&);
